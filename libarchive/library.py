@@ -6,7 +6,7 @@ import ctypes.util
 
 _LOGGER = logging.getLogger(__name__)
 
-_LIBRARY_NAME = 'libarchive'
+_LIBRARY_NAME = 'archive'
 _LIBRARY_FILENAME = 'libarchive.so'
 
 def find_and_load_library():
