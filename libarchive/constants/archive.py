@@ -49,3 +49,4 @@ ARCHIVE_FORMAT_LHA                 = 0xB0000
 ARCHIVE_FORMAT_CAB                 = 0xC0000
 ARCHIVE_FORMAT_RAR                 = 0xD0000
 ARCHIVE_FORMAT_7ZIP                = 0xE0000
+ARCHIVE_FORMAT_RAR_V5              = 0x100000
