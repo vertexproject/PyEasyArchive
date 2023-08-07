@@ -8,3 +8,10 @@
 /include/
 /lib/
 __pycache__
+
+venv
+.python-version
+
+.idea/
+*.swo
+*.swp
