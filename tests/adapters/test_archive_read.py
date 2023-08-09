@@ -87,3 +87,25 @@ class TestArchiveRead(unittest.TestCase):
                 }
 
                 self.assertEquals(index, expected)
+
+    def test_read_format_code(self):
+        with libarchive.test_support.test_archive() as filepath:
+
+            format_code = libarchive.constants.ARCHIVE_FORMAT_7ZIP
+            with libarchive.adapters.archive_read.file_reader(filepath, format_code=format_code) as reader:
+                for entry in reader:
+                    pass
+
+            format_code = libarchive.constants.ARCHIVE_FORMAT_RAR
+            with libarchive.adapters.archive_read.file_reader(filepath, format_code=format_code) as reader:
+                with self.assertRaises(ValueError) as cm:
+                    for entry in reader:
+                        pass
+                self.assertIn('Bad RAR file', str(cm.exception))
+
+            format_code = libarchive.constants.ARCHIVE_FORMAT_RAR_V5
+            with libarchive.adapters.archive_read.file_reader(filepath, format_code=format_code) as reader:
+                with self.assertRaises(ValueError) as cm:
+                    for entry in reader:
+                        pass
+                self.assertIn('Header CRC error', str(cm.exception))
